@@ -47,11 +47,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. Workout library section placeholder for displaying exercise cards */}
+      {/* Workout library section placeholder and grid layout */}
       <section className="max-w-6xl mx-auto px-6 py-8">
         <h2 className="text-xl font-bold mb-6 text-slate-200">THE LIBRARY</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {/* Exercise cards will be rendered here */}
+
+
+          {/* Individual workout card component for Becch Press */}
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-all">
+            <span className="text-xs font-semibold text-yellow-400 uppercase tracking-wider">Strength</span>
+            <h3 className="text-lg font-bold mt-2 text-white">Barbell Bench Press</h3>
+            <p className="text-slate-400 text-xs mt-1">Chest & Triceps . 4 Sets * 8 Reps</p>
+          </div>
+
+          {/* Individual workout card component for Deadlift */}
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p5 hover:border-slate-700 transition-all">
+            <span className="text-xs font-semibold text-yellow-400 uppercase tracking-wider">Strength</span>
+            <h3 className="text-lg font-bold mt-2 text-white">Deadlift</h3>
+            <p className="text-slate-400 text-xs mt-1">Back & Hamstrings . 3 Sets * 5 Reps</p>
+          </div>
+
+           {/* Individual workout card component for Incline Dumbbell Press */}
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p5 hover:border-slate-700 transition-all">
+            <span className="text-xs font-semibold text-yellow-400 uppercase tracking-wider">Hypertrophy</span>
+            <h3 className="text-lg font-bold mt-2 text-white">Incline Dumbbell Press</h3>
+            <p className="text-slate-400 text-xs mt-1">Upper Chest . 3 Sets * 10 Reps</p>
+          </div>
+
         </div>
       </section>
 
