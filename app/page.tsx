@@ -84,6 +84,27 @@ export default function Home() {
           <p className="text-slate-400 text-sm ">Logging interface and exercise tracking form will be rendered here</p>
         </div>
       </section>
+
+      {/* Weekly progress and statistics section */}
+      <section className="max-w-6xl mw-auto px-6 py-8">
+        <h2 className="text-xl font-bold mb-6 text-slate-200">WEEKLY PROGRESS</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <h3 className="text-slate-400 text-xs font-semibold">TOTAL WORKOUTS</h3>
+            <p className="text-2xl font-bold text-white mt-2">4 Sessions</p>
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <h3 className="text-slate-400 text-xs font-semibold">TOTAL VOLUME</h3>
+            <p className="text-2xl font-bold text-white mt-2">12,450 kg</p> 
+        </div>
+
+         <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <h3 className="text-slate-400 text-xs font-semibold">STREAK</h3>
+            <p className="text-2xl font-bold text-yellow-400 mt-2">3 Days</p> 
+        </div>
+      </div>
+    </section>
       </div>
   );
 }
