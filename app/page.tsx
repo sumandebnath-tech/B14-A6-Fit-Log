@@ -77,6 +77,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Daily workout logging section placeholder */}
+      <section className="max-w-6xl mx-auto px-6 py-8">
+        <h2 className="text-xl font-bold mb-6 text-slate-200">TODAY'S WORKOUT LOG</h2>
+        <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <p className="text-slate-400 text-sm ">Logging interface and exercise tracking form will be rendered here</p>
+        </div>
+      </section>
       </div>
   );
 }
