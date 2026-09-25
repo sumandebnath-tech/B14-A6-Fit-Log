@@ -105,6 +105,11 @@ export default function Home() {
         </div>
       </div>
     </section>
+
+    {/* Footer section */}
+    <footer className="max-w-6xl mx-auto px-6 py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
+      <p>© 2026 Fit-Log. All rights reserved. Built with Next.js & Tailwind CSS.</p>
+    </footer>
       </div>
   );
 }
