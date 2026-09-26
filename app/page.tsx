@@ -1,3 +1,254 @@
+'use client';
+
+import React, { useState } from 'react';
+
+const workouts = [
+  {
+    id: 1,
+    title: 'BARBELL BENCH PRESS',
+    category: ['CHEST', 'ARMS'],
+    description: 'A compound press that builds chest thickness, triceps, and anterior delts from a stable bench.',
+    equipment: 'Barbell, Bench',
+    difficulty: 'Intermediate',
+    sets: '4 sets',
+    reps: '8-10 reps',
+    duration: '25 min',
+    calories: '180 kcal',
+    rating: '4.6',
+    instructions: [
+      'Lie on the bench on the with eyes under the bar and feet planted.',
+      'Unrack with locked elbows and lower the bar to mid-chest.',
+      'Press up in a slight arc until elbows lock without bouncing.',
+      'Keep shoulder blades pinched and a natural arch in the back.'
+    ]
+  },
+
+
+  {
+    id: 2,
+    title: 'PULL-UP',
+    category: ['BACK', 'ARMS'],
+    description: 'A classic upper body pulling exercise focusing on the latissiums dorsi and biceps.',
+    equipment: 'Pull-up Bar',
+    difficulty: 'Intermediate',
+    sets: '3 sets',
+    reps: '6-8 reps',
+    duration: '15 min',
+    calories: '120 kcal',
+    rating: '4.7',
+    instructions: [
+      'Grab the pull-up bar with an overhand grip wider than shoulder-width.',
+      'Hang with fully extended arms and engaged core.',
+      'Pull your chest up to the bar by driving elbows down.',
+      'Lower yourself back down with control.'
+    ]
+  },
+  
+   {
+    id: 3,
+    title: 'BACK SQUAT',
+    category: ['LEGS', 'CORE'],
+    description: 'The king of lower body exercises targeting quads, glutes, and lower back.',
+    equipment: 'Barbell, Rack',
+    difficulty: 'Advanced',
+    sets: '4 sets',
+    reps: '5-6 reps',
+    duration: '30 min',
+    calories: '240 kcal',
+    rating: '4.9',
+    instructions: [
+      'Position the bar across your upper back (traps).',
+      'Unrack, step back, and set your feet shoulder-width apart .',
+      'Squat down by pushing hips back and bending knees.',
+      'Drive through your heels to return to the starting position.'
+    ]
+  },
+
+   {
+    id: 4,
+    title: 'OVERHEAD PRESS',
+    category: ['SHOULDERS', 'ARMS'],
+    description: 'Build robust shoulder strength and stability by pressing overhead.',
+    equipment: 'Barbell',
+    difficulty: 'Intermediate',
+    sets: '3 sets',
+    reps: '8-10 reps',
+    duration: '20 min',
+    calories: '150 kcal',
+    rating: '4.6',
+    instructions: [
+      'Hold the bar at collarbone level with hands just outside shoulders.',
+      'Brace your core and squeeze your glutes.',
+      'Press the bar straight up overhead, moving your head back slightly.',
+      'Lock out overhead and return safely.'
+    ]
+  },
+
+   {
+    id: 5,
+    title: 'DUMBBELL BICEP CURL',
+    category: ['ARMS'],
+    description: 'Isolation exercise to build bicep peak and arm size.',
+    equipment: 'Dumbbells',
+    difficulty: 'Beginner',
+    sets: '3 sets',
+    reps: '10-12 reps',
+    duration: '12 min',
+    calories: '80 kcal',
+    rating: '4.3',
+    instructions: [
+      'Hold dumbbells at your sides with palms facing forward.',
+      'Keep your elbows locked close to your torso.',
+      'Curl the weights upward while contracting your biceps.',
+      'Lower slowly to the starting position.'
+    ]
+  },
+
+   {
+    id: 6,
+    title: 'DUMBBELL BICEP CURL',
+    category: ['ARMS'],
+    description: 'Alternative variation focusing on hammer grip or alternate curls.',
+    equipment: 'Dumbbells',
+    difficulty: 'Beginner',
+    sets: '3 sets',
+    reps: '10-12 reps',
+    duration: '12 min',
+    calories: '80 kcal',
+    rating: '4.3',
+    instructions: [
+      'Maintain an upright posture with core engaged.',
+      'Curl one dumbbell at a time or together with control.',
+      'Squeeze at the top and lower smoothly.',
+    ]
+  },
+
+   {
+    id: 7,
+    title: 'HOLLOW-BODY PLANK',
+    category: ['CORE'],
+    description: 'An advanced core stabilization hold that fires up your entire midsection.',
+    equipment: 'Bodyweight',
+    difficulty: 'Intermediate',
+    sets: '3 sets',
+    reps: '45 sec hold',
+    duration: '10 min',
+    calories: '60 kcal',
+    rating: '4.4',
+    instructions: [
+      'Lie on your back, lift shoulders and legs slightly off the floor.',
+      'Press lower back flat into the ground.',
+      'Hold the hollow position with tight abs.',
+    ]
+  },
+
+   {
+    id: 8,
+    title: 'DUMBBELL BICEP CURL',
+    category: ['ARMS'],
+    description: 'Standard arm builder using dumbbells.',
+    equipment: 'Dumbbells',
+    difficulty: 'Beginner',
+    sets: '3 sets',
+    reps: '10-12 reps',
+    duration: '12 min',
+    calories: '80 kcal',
+    rating: '4.3',
+    instructions: [
+      'Keep upper arms stationary and curl weights upward.',
+    ]
+  },
+
+   {
+    id: 9,
+    title: 'CONVENTIONAL DEADLIFT',
+    category: ['BACK', 'LEGS', 'CORE'],
+    description: 'Total body pulling power movement.',
+    equipment: 'Barbell',
+    difficulty: 'Advanced',
+    sets: '3 sets',
+    reps: '5 reps',
+    duration: '25 min',
+    calories: '260 kcal',
+    rating: '4.8',
+    instructions: [
+      'Stand with feet hip-width apart under the barbell.',
+      'Hinge at hips, grab the bar, flatten your back.',
+      'Drive through floor and lock hips at the top.',
+    ]
+  },
+
+   {
+    id: 10,
+    title: 'PUSH-UP',
+    category: ['CHEST', 'ARMS','CORE'],
+    description: 'Classic bodyweight push movement for upper body strength.',
+    equipment: 'Bodyweight',
+    difficulty: 'Beginner',
+    sets: '3 sets',
+    reps: '15 reps',
+    duration: '10 min',
+    calories: '90 kcal',
+    rating: '4.5',
+    instructions: [
+      'Place hands shoulder-width apart in a plank position.',
+      'Lower your chest to the floor, keeping elbows at a 45-degree angle.',
+      'Push back up to starting position.'
+    ]
+  },
+
+   {
+    id: 11,
+    title: 'WALKING LUNGE',
+    category: ['LEGS', 'CORE'],
+    description: 'Dynamic lower body movement focusing on unilateral leg strength.',
+    equipment: 'Dumbbells (optional)',
+    difficulty: 'Intermediate',
+    sets: '3 sets',
+    reps: '12 reps/leg',
+    duration: '15 min',
+    calories: '170 kcal',
+    rating: '4.4',
+    instructions: [
+      'Step forward with one leg and lower hips until both knees are bent at 90 degrees.',
+      'Push up and step forward with the other leg.'
+    ]
+  },
+
+   {
+    id: 12,
+    title: 'RUSSIAN TWIST',
+    category: ['CORE'],
+    description: 'Rotational core exercise targeting obliques.',
+    equipment: 'Medicine Ball',
+    difficulty: 'Beginner',
+    sets: '3 sets',
+    reps: '20 reps',
+    duration: '8 min',
+    calories: '70 kcal',
+    rating: '4.1',
+    instructions: [
+      'Sit on floor, lean back slightly, lift feet.',
+      'Twist torso from side to side, touching the floor or weight.'
+    ]
+  }
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import Image from "next/image";
 
 export default function Home() {
